@@ -6,4 +6,4 @@ We introduce DRIFT, a novel data-driven framework for radio frequency (RF) tomog
 
 For data acquisition, we design a testbed named VR-Spin, a cross-modal sensing system equipped with RF and visual sensors. Containers of different sizes are used to hold the soil and tubers and can be easily replaced, thereby accelerating the data collection process.
 
-![The cross-modal system.](Images/System.png)
+![The cross-modal system.](Images/system.png)
