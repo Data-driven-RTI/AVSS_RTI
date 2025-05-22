@@ -11,12 +11,12 @@ from evaluation import CalGradDifferenceBatch,CalIoUBatch,CalEDE
 from dataloader import RTIDataset
 import matplotlib.pyplot as plt
 import os
+import numpy as np
 
 
-lr = 1e-3
-epochs = 80
-img_function = nn.MSELoss()
+
 device = "cuda:1"
+img_function = nn.MSELoss()
 
 def visualize(testfile,pretrainmodel,savedir):
     model = torch.load(pretrainmodel,map_location=device)
@@ -32,9 +32,11 @@ def visualize(testfile,pretrainmodel,savedir):
             if testidx == 0:
                 for kk in range(batchSize):
                     imgip = test_img[kk].detach().cpu().numpy()
+                    imgip = processData(imgip)
                     imgt = testground[kk].detach().cpu().numpy()
                     plt.imsave(savedir+str(testidx)+str(kk)+".png",imgip)
                     plt.imsave(savedir+str(testidx)+str(kk)+"gt.png",imgt)
+                    
 
 def EvaluationFunction(testfile,model):
     model = torch.load(model,map_location=device)
@@ -97,30 +99,11 @@ def finetune(trainfile,pretrainmodel,strr):
             torch.save(model,strr+".pth")
 
 
-def train(trainfile,strr):
-    trainset = RTIDataset(trainfile)
-    trainloader = DataLoader(trainset,batch_size=64,pin_memory=True,num_workers=4,shuffle=False,drop_last=True)    
-    model = MainModel(in_channels=16,feature_length=1024,img_width=360,img_height=360).to(device)
-    optimzier = optim.Adam(model.parameters(),lr=lr,weight_decay=1e-9)
-    for epoch in range(epochs):
-        model.train()
-        for trainidx,(traindata,trainground) in enumerate(trainloader):
-            traindata = traindata.to(device)
-            trainground = trainground.to(device)
-            Img_x = model(traindata)
-            img_loss = img_function(Img_x,trainground)
-            optimzier.zero_grad()
-            img_loss.backward()
-            optimzier.step()
-            print("Epoch: ",epoch, " Train IDX: ",trainidx,
-                  " img loss: ",img_loss.data.item())
-        
-        if epoch == epochs -1:
-            torch.save(model,strr+".pth")
+
 
 if __name__ == "__main__":
-    testfile = "../datafiles/Leave3Out/Env3_Test_leave_3_out.txt"
-    modelfile = "../Models/Env3_3_out.pth"
+    testfile = "../datafiles/Leave1Out/Env3_Test_leave_1_Out.txt"
+    modelfile = "../Models/Env3_1_out.pth"
     ede_value,pixel_ratio_difference_mean,Iou_mean = EvaluationFunction(testfile,modelfile)
     print("EDE: ",ede_value," RPD: ",pixel_ratio_difference_mean," IoU: ",Iou_mean)
     
