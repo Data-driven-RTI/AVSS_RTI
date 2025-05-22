@@ -37,7 +37,7 @@ We use different metrics to quantitatively evaluate the performance of the DRIFT
 <p align="center">
   <img src="Images/result.png" alt="resutls."/>
 </p>
-During data collection, we create dynamic environments ($E_2$ ~ $E_4$) on purpose by walking inside the RF sensing area and changing the environmental layout to evaluate the robustness of our method. In our evaluation, we use RSS data from $E_1$ to build an initial model, which is fine-tuned and evaluated on the rest of the experiments $E_2$ ~ $E_4$. Specifically, we use one potato tuber to fine-tune our pretrained model, and use the remaining $K \in 1,2,3,4$ number of tubers in our leave-k-out test to evaluate the performance of our DRIFT framework. The results in the table demonstrate that our model achieves greater robustness compared to baseline methods.
+During data collection, we create dynamic environments (E₂ ~ E₄) on purpose by walking inside the RF sensing area and changing the environmental layout to evaluate the robustness of our method. In our evaluation, we use RSS data from E₁ to build an initial model, which is fine-tuned and evaluated on the rest of the experiments E₂ ~ E₄. Specifically, we use one potato tuber to fine-tune our pretrained model, and use the remaining K ∈ 1,2,3,4 number of tubers in our leave-k-out test to evaluate the performance of our DRIFT framework. The results in the table demonstrate that our model achieves greater robustness compared to baseline methods.
 
 
 
