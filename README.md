@@ -32,6 +32,16 @@ Download or git clone the DRIFT project. Download and unzip  Model.zip and Groun
 ```
    unzip Model.zip -d [DRIFT root directory]
 ```
+
+## Visualization
+We present example visualizations of our model’s predictions.
+
+<p align="center">
+  <img src="Images/vis0.png" width="30%" />
+  <img src="Images/vis1.png" width="30%" />
+  <img src="Images/vis2.png" width="30%" />
+</p>
+
 ## Evaluation
 We use different metrics to quantitatively evaluate the performance of the DRIFT framework in a dynamic environment, as well as that of baseline methods.
 <p align="center">
