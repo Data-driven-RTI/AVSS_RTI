@@ -12,3 +12,4 @@ For data acquisition, we design a testbed named VR-Spin, a cross-modal sensing s
   <img src="Images/system.png" alt="The cross-modal system." width="400"/>
 </p>
 
+To assess the performance of the DRIFT framework, we construct a dataset in a dynamic environment and conduct extensive evaluations on it. We have released a portion of the pre-trained models and the corresponding data files in releases, which can be used for performance evaluation.
