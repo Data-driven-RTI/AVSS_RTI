@@ -37,8 +37,10 @@ Download or git clone the DRIFT project. Download and unzip  Model.zip and Groun
 We present example visualizations of our model’s predictions.
 
 <p align="center">
-  <img src="Images/vis0.png" width="20%" style="margin-right:30px;" />
-  <img src="Images/vis1.png" width="20%" style="margin-right:30px;"/>
+  <img src="Images/vis0.png" width="20%" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="Images/vis1.png" width="20%" />
+  &nbsp;&nbsp;&nbsp;
   <img src="Images/vis2.png" width="20%" />
 </p>
 
